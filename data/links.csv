@@ -1,0 +1,12 @@
+id,subject,course,activity,start,end,received,verdict,ref
+l1,o1,c1,a,1,30,22,confirmed,
+l2,o2,c1,a,1,30,23,confirmed,
+l3,o3,c2,b,1,30,24,confirmed,
+l4,o4,c2,b,1,30,25,confirmed,
+l5,o3,c2,a,1,30,26,shared_support,
+l6,o5,c2,b,1,30,27,confirmed,
+l7,o6,c2,b,1,30,28,confirmed,
+l8,o2,c1,a,1,30,32,withdrawn,l2
+l9,o4,c2,a,1,30,31,confirmed,
+l10,o4,c2,a,1,30,34,excluded,l9
+l11,o7,c1,a,55,80,71,shared_payee,

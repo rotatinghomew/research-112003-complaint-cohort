@@ -1,0 +1,8 @@
+order,household,campaign_hint,course,bought,jurisdiction
+o1,h1,a,c1,12,north
+o2,h2,a,c1,16,north
+o3,h3,b,c2,17,north
+o4,h4,b,c2,16,north
+o5,h1,b,c2,19,north
+o6,h5,b,c2,20,north
+o7,h6,a,c1,70,south
