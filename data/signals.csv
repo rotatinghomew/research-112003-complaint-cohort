@@ -1,0 +1,7 @@
+activity,compare_at,age_day,followup,reference_before,min_families,scope
+a,28,4,10,28,3,north
+b,28,4,10,28,3,north
+a,34,4,10,34,3,north
+b,34,4,10,34,3,north
+old08,-33,4,10,-33,3,north
+old13,7,4,10,7,3,north

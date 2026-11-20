@@ -4,7 +4,7 @@ from pathlib import Path
 import unittest
 
 DATA = Path(__file__).resolve().parents[1] / 'data'
-TABLES = {'purchases': ('order', 'household', 'campaign_hint', 'course', 'bought', 'jurisdiction'), 'claims': ('claim', 'revision', 'received', 'order', 'account', 'severity', 'state'), 'identity': ('id', 'first', 'second', 'received', 'verdict'), 'links': ('id', 'subject', 'course', 'activity', 'start', 'end', 'received', 'verdict', 'ref'), 'shifts': ('shift', 'day', 'jurisdiction', 'slots', 'min_households', 'min_high'), 'commitments': ('receipt', 'shift', 'activity', 'household', 'claim', 'agreed')}
+TABLES = {'purchases': ('order', 'household', 'campaign_hint', 'course', 'bought', 'jurisdiction'), 'claims': ('claim', 'revision', 'received', 'order', 'account', 'severity', 'state'), 'identity': ('id', 'first', 'second', 'received', 'verdict'), 'links': ('id', 'subject', 'course', 'activity', 'start', 'end', 'received', 'verdict', 'ref'), 'shifts': ('shift', 'day', 'jurisdiction', 'slots', 'min_households', 'min_high'), 'commitments': ('receipt', 'shift', 'activity', 'household', 'claim', 'agreed'), 'exposures': ('receipt', 'activity', 'household', 'channel', 'age_day', 'observed'), 'incidents': ('receipt', 'report_id', 'known', 'independent_review'), 'coverage': ('activity', 'channel', 'completed_age', 'known'), 'signals': ('activity', 'compare_at', 'age_day', 'followup', 'reference_before', 'min_families', 'scope')}
 RELATION = ('claims', 'order', 'purchases', 'order')
 
 
@@ -29,3 +29,5 @@ class SourceContract(unittest.TestCase):
     def test_source_variation(self):
         self.assertGreater(sum(row['subject'] == 'o4' and row['verdict'] == 'confirmed' for row in self.read('links')), 1)
         self.assertTrue(any(row['ref'] == 'l2' and int(row['received']) > 29 for row in self.read('links')))
+        self.assertTrue(any(int(row['known']) < 0 for row in self.read('incidents')))
+        self.assertTrue(any(row['activity'] == 'b' and row['completed_age'] == '2' for row in self.read('coverage')))
